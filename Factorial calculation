@@ -1,0 +1,11 @@
+import math
+
+# Define a function to compute factorial using the math module
+def factorial_lib(n):
+    return math.factorial(n)
+num = int(input("Enter a number: "))
+if num < 0:
+    print("Factorial is not defined for negative numbers.")
+else:
+    result = factorial_lib(num)
+    print(f"Factorial of {num} is {result}")
