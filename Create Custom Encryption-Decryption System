@@ -1,0 +1,22 @@
+# Define a Caesar Cipher class for encryption and decryption
+def encrypt_caesar(message, key):
+    encrypted = ""
+    for char in message:
+        if char.isalpha():
+            base = ord('A') if char.isupper() else ord('a')
+            encrypted += chr((ord(char) - base + key) % 26 + base)
+        else:
+            encrypted += char
+    return encrypted
+
+def decrypt_caesar(encrypted_message, key):
+    return encrypt_caesar(encrypted_message, -key)
+    
+msg = input("Enter your message: ")
+k = int(input("Enter shift key (e.g., 3): "))
+
+cipher_text = encrypt_caesar(msg, k)
+original_text = decrypt_caesar(cipher_text, k)
+
+print("\nEncrypted Message:", cipher_text)
+print("Decrypted Message:", original_text)
